@@ -3,6 +3,7 @@ package guru.springframework.sfgpetclinic.controllers;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class IndexControllerTest {
@@ -15,6 +16,7 @@ public class IndexControllerTest {
         controller = new IndexController();
     }
 
+    @DisplayName("Test proper View name is returned for index page")
     @Test
     void testIndex() {
         assertEquals("index", controller.index());
@@ -23,6 +25,7 @@ public class IndexControllerTest {
 
     }
 
+    @DisplayName("Test exception")
     @Test
     void testOupsHandler() {
         assertTrue("notimplemented".equals(controller.oupsHandler()),
