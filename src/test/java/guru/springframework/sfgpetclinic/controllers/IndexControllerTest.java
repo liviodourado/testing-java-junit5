@@ -1,7 +1,7 @@
 package guru.springframework.sfgpetclinic.controllers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -28,8 +28,8 @@ public class IndexControllerTest {
     @DisplayName("Test exception")
     @Test
     void testOupsHandler() {
-        assertTrue("notimplemented".equals(controller.oupsHandler()),
-                () -> "this is some expensive " + "message to build " + "form my test");
-
+        assertThrows(ValueNotFoundException.class, () -> {
+            controller.oupsHandler();
+        });
     }
 }
