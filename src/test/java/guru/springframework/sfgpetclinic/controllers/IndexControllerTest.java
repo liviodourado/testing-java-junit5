@@ -10,11 +10,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledOnJre;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.JRE;
+import org.junit.jupiter.api.condition.OS;
 
 public class IndexControllerTest {
     IndexController controller;
-
-
 
     @BeforeEach
     void setUp() {
@@ -66,5 +68,17 @@ public class IndexControllerTest {
     @Test
     void testAssumptionTrueAssumptionIsTrue() {
         assumeTrue("GURU".equalsIgnoreCase("GURU"));
+    }
+
+    @EnabledOnOs(OS.LINUX)
+    @Test
+    void TestMeOnOs() {
+
+    }
+
+    @EnabledOnJre(JRE.JAVA_10)
+    @Test
+    void TestMeOnJre() {
+
     }
 }
